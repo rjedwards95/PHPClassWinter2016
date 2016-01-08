@@ -14,35 +14,35 @@
         $rowCount = 0;
         ?>
         <table>
-            <?php 
+            <?php
             //Loops the table generation until collumn count and row count is done.
-            
-            do { ?>
+
+            do {
+                ?>
                 <tr>
                     <?php
                     //Loops collumn generation until number is met and runs rand_color() function.
-                    
-                    do{
-                    $color = rand_color();
-                    ?>
-                    <td style="background-color: <?php echo '#' . $color; ?> ">
-                        <?php echo $color; ?>
-                        </br>
-                        <span style="color:#FFF"> <?php echo $color; ?> </span>
-                    </td>
-                    
-                    <?php
-                    
-                    //Adds 1 to rowCount and checks do/while condition.
-                    
-                    $rowCount++;
-                    } while ($rowCount <=10);
+
+                    do {
+                        $color = rand_color();
+                        ?>
+                        <td style="background-color: <?php echo '#' . $color; ?> ">
+        <?php echo $color; ?>
+                            </br>
+                            <span style="color:#FFF"> <?php echo $color; ?> </span>
+                        </td>
+
+                        <?php
+                        //Adds 1 to rowCount and checks do/while condition.
+
+                        $colCount++;
+                    } while ($colCount <= 10);
                     ?>
                 </tr>
-            <?php
-            //Resets rowCount and adds 1 to colCount and checks row do/while condition.
-                $colCount++;
-                $rowCount = 0;
+                <?php
+                //Resets rowCount and adds 1 to colCount and checks row do/while condition.
+                $rowCount++;
+                $colCount = 0;
             } while ($colCount <= 10);
             ?>
         </table>
