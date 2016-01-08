@@ -43,7 +43,7 @@
                 //Resets rowCount and adds 1 to colCount and checks row do/while condition.
                 $rowCount++;
                 $colCount = 0;
-            } while ($colCount <= 10);
+            } while ($rowCount <= 10);
             ?>
         </table>
     </body>
