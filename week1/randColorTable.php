@@ -36,14 +36,14 @@
                         //Adds 1 to rowCount and checks do/while condition.
 
                         $colCount++;
-                    } while ($colCount <= 10);
+                    } while ($colCount < 10);
                     ?>
                 </tr>
                 <?php
                 //Resets rowCount and adds 1 to colCount and checks row do/while condition.
                 $rowCount++;
                 $colCount = 0;
-            } while ($rowCount <= 10);
+            } while ($rowCount < 10);
             ?>
         </table>
     </body>
