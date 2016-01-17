@@ -69,6 +69,7 @@ body{
 }
 #dataTable tr:hover{
     background-color:#006bb3;
+    text-shadow: none;
 }
 a{
     text-shadow: none;
