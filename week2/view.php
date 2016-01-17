@@ -7,10 +7,12 @@
     </head>
     <body>
         <?php
+        //Includes the db.php file for the db class item.
         include './db.php';
 
+        //Makes new db class object.
         $db = new db();
-
+        //sets the results to the result array of the viewData() function.
         $results = $db->viewData();
         ?>
         <div class="wrapper">
@@ -26,6 +28,8 @@
                         <th> Height</th>
                         <th> Birthday</th>
                     </tr>
+                    <!-- Loops the generation of the table and fills table with data from
+                            actor table on the database--> 
                     <?php foreach ($results as $row): ?>
                         <tr>
                             <td><?php echo $row['id']; ?></td>
@@ -36,6 +40,7 @@
                         </tr>
                     <?php endforeach; ?>
                 </table>
+
                 <a href="add.php"> Add Data </a>
             </div>
         </div>

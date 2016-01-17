@@ -146,7 +146,7 @@
 
             <!--Displays the $result variable, if any errors it will also display here -->
             <div class='results'>
-<?php echo $results; ?>
+                <?php echo $results; ?>
             </div>
             <a href="view.php"> View Data</a>
         </div>

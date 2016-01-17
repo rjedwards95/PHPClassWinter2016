@@ -91,8 +91,9 @@ class db {
     }
 
     /*
-     * Method toconnect to database to recieve data. Taken from view.php in class files.
-     * In view.php.
+     * Method to connect to database to recieve data. Taken from view.php 
+     * in class files.
+     *
      * 
      * @return $results PDO
      */
