@@ -36,7 +36,7 @@
                             <td><?php echo $row['firstname']; ?></td>
                             <td><?php echo $row['lastname']; ?></td>
                             <td><?php echo $row['height']; ?></td>
-                            <td><?php echo $row['dob']; ?></td>
+                            <td><?php echo date('n/j/Y',  strtotime($row['dob'])); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
