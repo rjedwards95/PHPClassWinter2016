@@ -70,3 +70,6 @@ body{
 #dataTable tr:hover{
     background-color:#006bb3;
 }
+a{
+    text-shadow: none;
+}
