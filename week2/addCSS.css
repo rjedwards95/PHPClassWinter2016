@@ -1,0 +1,72 @@
+/* 
+    Created on : Jan 16, 2016, 2:35:45 PM
+    Author     : Ryan
+*/
+
+body{
+    width: 400px;
+    height: 500px;
+    margin:auto;
+    margin-top:150px;
+    background-color:#001433;
+    color:#00001a;
+}
+.wrapper{
+    background-color:#000a1a;
+    border: 10px solid #000a1a;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 7px 7px black;
+    text-shadow: 1px 1px 2px lightslategrey;
+}
+.Header{
+    background-color: #cce0ff;
+    border: 1px solid #cce0ff;
+    box-shadow: 3px 3px black;
+    border-radius: 7px;
+    margin-bottom:25px;
+}
+.results{
+    height:auto;
+    width:auto;
+    color: white;
+    margin-top:3px;
+    margin-left: auto;
+    margin-right:auto;
+    font-style: italic;
+    font-weight: bold;
+}
+#form{
+    margin:auto;
+    background-color:#cce0ff;
+    border: 3px solid #cce0ff;
+    box-shadow: 3px 3px black;
+    border-radius:7px;
+    margin-bottom: 10px;
+}
+#form tr{
+    height:25px;
+}
+#submit{
+    margin: 5px 5px 5px 5px;
+}
+#submit:hover{
+    box-shadow: 3px 3px black;
+}
+#submit:active{
+    border: 5px solid;
+}
+#dataTable{
+    background-color:#cce0ff;
+    border:2px solid black;
+    border-radius:10px;
+    box-shadow: 3px 3px black;
+}
+#dataTable td,#dataTable th{
+    height:25px;
+    border:2px solid black;
+    border-radius: 3px;
+}
+#dataTable tr:hover{
+    background-color:#006bb3;
+}
