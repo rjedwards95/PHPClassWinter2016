@@ -6,7 +6,7 @@
             Add Data to Database
         </title>
         <!-- Links Stylesheet to webpage -->
-        <link rel="stylesheet" type="text/css" href="addCSS.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
     <?php

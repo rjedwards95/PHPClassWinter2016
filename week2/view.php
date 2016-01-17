@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>View Actor Database</title>
-        <link rel="stylesheet" type="text/css" href="addCSS.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
         <?php
