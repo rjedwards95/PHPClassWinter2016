@@ -19,13 +19,13 @@ and open the template in the editor.
         include_once 'functions.php';
 
         $db = dbconnect();
-            
-            $results = "";
-            $corp = "";
-            $email = "";
-            $zipcode = "";
-            $owner = "";
-            $phone = "";
+
+        $results = "";
+        $corp = "";
+        $email = "";
+        $zipcode = "";
+        $owner = "";
+        $phone = "";
 
         if (isPostRequest()) {
             $stmt = $db->prepare("INSERT INTO corps SET corp = :corp, incorp_dt = now(), email = :email, zipcode = :zip, owner = :owner, phone = :phone");
@@ -45,10 +45,10 @@ and open the template in the editor.
                 ":owner" => $owner,
                 ":phone" => $phone
             );
-            
+
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                 $results = 'Data Added';
-            }else{
+            } else {
                 $results = 'Data not Added';
             }
         }
@@ -66,11 +66,11 @@ and open the template in the editor.
                     <th class="tableCenter">Corp. Phone</th>
                 </tr>
                 <tr>
-                    <td><input type="text" value="<?php echo $corp;?>" name="corp" /></td>
-                    <td><input type="text" value="<?php echo $email;?>" name="email" /></td>
-                    <td><input type="text" value="<?php echo $zipcode;?>" name="zip" /></td>
-                    <td><input type="text" value="<?php echo $owner;?>" name="owner" /></td>
-                    <td><input type="text" value="<?php echo $phone;?>" name="phone" /></td>
+                    <td><input type="text" value="<?php echo $corp; ?>" name="corp" /></td>
+                    <td><input type="text" value="<?php echo $email; ?>" name="email" /></td>
+                    <td><input type="text" value="<?php echo $zipcode; ?>" name="zip" /></td>
+                    <td><input type="text" value="<?php echo $owner; ?>" name="owner" /></td>
+                    <td><input type="text" value="<?php echo $phone; ?>" name="phone" /></td>
                 </tr>
             </table>
             <input class="btn btn-success" type="submit" value="Submit" />
