@@ -9,7 +9,6 @@
         <?php
         //Includes the db.php file for the db class item.
         include './db.php';
-
         //Makes new db class object.
         $db = new db();
         //sets the results to the result array of the viewData() function.
