@@ -59,11 +59,11 @@ and open the template in the editor.
         <form method="post" action="#">  
             <table border="1" class="table table-striped">
                 <tr>
-                    <th class="tableCenter">Corp. Name</th>
-                    <th class="tableCenter">Corp. Email</th>
-                    <th class="tableCenter">Corp. Zip</th>
-                    <th class="tableCenter">Corp. Owner</th>
-                    <th class="tableCenter">Corp. Phone</th>
+                    <th class="center">Corp. Name</th>
+                    <th class="center">Corp. Email</th>
+                    <th class="center">Corp. Zip</th>
+                    <th class="center">Corp. Owner</th>
+                    <th class="center">Corp. Phone</th>
                 </tr>
                 <tr>
                     <td><input type="text" value="<?php echo $corp; ?>" name="corp" /></td>

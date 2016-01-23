@@ -49,16 +49,16 @@ and open the template in the editor.
 
         <table border="1" class="table table-striped">
             <tr>
-                <th class="tableCenter">Corp. Name</th>
-                <th class="tableCenter">Date Corp. Added</th>
-                <th class="tableCenter">Corp. Email</th>
-                <th class="tableCenter">Corp. Zip</th>
-                <th class="tableCenter">Corp. Owner</th>
-                <th class="tableCenter">Corp. Phone</th>
-                <th class="tableCenter">Update</th>
-                <th class="tableCenter">Delete</th>
+                <th class="center">Corp. Name</th>
+                <th class="center">Date Corp. Added</th>
+                <th class="center">Corp. Email</th>
+                <th class="center">Corp. Zip</th>
+                <th class="center">Corp. Owner</th>
+                <th class="center">Corp. Phone</th>
+                <th class="center">Update</th>
+                <th class="center">Delete</th>
             </tr>
-            <tr class="tableCenter">
+            <tr class="center">
                 <td><?php echo $corp; ?></td>
                 <td><?php echo $date; ?></td>
                 <td><?php echo $email; ?></td>

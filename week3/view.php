@@ -28,13 +28,13 @@
 
         <table border="1" class="table table-striped">
             <tr>
-                <th class="tableCenter">Corp Name</th>
-                <th class="tableCenter">Read</th>
-                <th class="tableCenter">Update</th>
-                <th class="tableCenter">Delete</th>
+                <th class="center">Corp Name</th>
+                <th class="center">Read</th>
+                <th class="center">Update</th>
+                <th class="center">Delete</th>
             </tr>
             <?php foreach ($results as $row): ?>
-                <tr class="tableCenter">
+                <tr class="center">
                     <td class="tableLeft"><?php echo $row['corp']; ?></td>
                     <td><a class="btn btn-primary" href = "read.php?id=<?php echo $row['id']; ?>">Read</a></td>
                     <td><a class ="btn btn-default" href = "update.php?id=<?php echo $row['id']; ?>">Update</a></td>
