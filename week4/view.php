@@ -17,6 +17,7 @@
         
         $action = "";
         
+        //Chekcs to see if get request to pull values from get.
         if(isGetRequest()){
         $action = filter_input(INPUT_GET, 'action');
         $search = filter_input(INPUT_GET, 'search');
@@ -26,7 +27,7 @@
         }
         
             
-            
+            //checks to see $action value. if search runs search function, if sort runs sort function.
                 if($action === 'search'){
                    $results = searchDB($column, $search);
                 }
@@ -50,6 +51,7 @@
             </tr>
             <tr>
                 <td>
+                    <!--Pulls forms from include folder-->
                     <?php include "./include/searchForm.php";?>
                 </td>
                 <td>
@@ -85,6 +87,7 @@
                 <th>Corp. Phone Number</th>
             </tr>
             <?php foreach ($results as $row): ?>
+            <!-- Loops through $results and populates table-->
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['corp']; ?></td>

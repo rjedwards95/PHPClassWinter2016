@@ -2,7 +2,7 @@
 $searchCol = "";
 $colName = colName("corps");
 
-
+//Checks if Get Request
 if (isGetRequest()) {
     $search = filter_input(INPUT_GET, 'search');
     $column = filter_input(INPUT_GET, 'column');
