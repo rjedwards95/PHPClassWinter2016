@@ -25,19 +25,9 @@
         } else {
             $site_id = null;
         }
-        ?>
 
-        <form action="#" method="POST">
-            Select from dropdown:   <select name='site_id'>
-                <?php foreach ($columns as $column): ?>
-                    <option<?php if ($column['site_id'] == $site_id): ?> selected="selected"<?php endif; ?> value ="<?php echo $column['site_id']; ?>"><?php echo $column['site']; ?> </option>
-                <?php endforeach; ?>
-            </select>
-            <input type="submit" value ="Submit"/>
-        </form>
+        include_once "./includes/form.php";
 
-        <?php
-        
         //Includes the Results Table if $links is set.
         if (isset($links)) {
             include_once "./includes/resultsTable.php";
