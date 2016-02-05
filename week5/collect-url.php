@@ -11,23 +11,26 @@
     </head>
     <body>
         <?php
+        //Includes the Header template.
         include './includes/header.php';
 
+        //Includes the CURL functions
         include_once './includes/curlFun.php';
+        //Includes the Databse Utilities
         include_once './includes/dbUtil.php';
 
         $url = filter_input(INPUT_POST, 'url');
+
+//Checks to see if Post Request to add url to database
 
         if (isPostRequest()) {
             if (filter_var($url, FILTER_VALIDATE_URL)) {
                 if (searchDB($url)) {
                     echo '<h3> Site is already in system.</h3>';
-                }
-            elseif(!filter_var($url, FILTER_VALIDATE_URL)) {
+                } elseif (!filter_var($url, FILTER_VALIDATE_URL)) {
                     echo '<h3>URL is not valid!</h3>'
                     . '<h5>Please use "http://www.[SITE].[com,edu,...]/" format</h5>';
-                }
-            else{
+                } else {
                     $pageData = getCurl($url);
                     echo "<h3> $url</h3>";
                     $links = matchURL($pageData);
@@ -44,13 +47,15 @@
             ?>
 
             <br/>
-        <?php elseif(ispostRequest()): ?>
+        <?php elseif (ispostRequest()): ?>
             <h3>Data not Added</h3>
         <?php endif; ?>
         <form action="#" method="POST">
-            <input type="text" name="url" value="<?php if (isset($url)) {
-            echo $url;
-        } ?>"/>
+            <input type="text" name="url" value="<?php
+            if (isset($url)) {
+                echo $url;
+            }
+            ?>"/>
             <input type="submit" name="submit"/>
         </form>
     </body>
