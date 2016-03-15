@@ -29,13 +29,16 @@
         elseif($view == 'add'){
             $title = "Add";
             require "../lab/Includes/header.html.php";
-            include './Functions/Add/add-functions.php';
-            include './Includes/Add/variable-assignment.php';
-            include "./Includes/Add/add-form.php";
+            include_once './Functions/Add/add-functions.php';
+            include_once './Includes/Add/variable-assignment.php';
+            include_once "./Includes/Add/add-form.php";
         }
         elseif($view == 'update'){
             $title = "Update";
             require "../lab/Includes/header.html.php";
+            include_once './Includes/View/variable-assignment.php';
+            include_once './Includes/Update/update-form.php';
+            include_once './Includes/Update/variable-assignment.php';
         }
         elseif($view == 'delete'){
             $title = "Delete";
@@ -54,6 +57,8 @@
         }elseif ($view == 'view') {
             $title = 'View';
             require "../lab/Includes/header.html.php";
+            include_once './Includes/View/variable-assignment.php';
+            include_once './Includes/View/view-table.php';
         }else{
             $title = "Home";
             require "../lab/Includes/header.html.php";

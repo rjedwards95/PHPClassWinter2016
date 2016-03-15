@@ -2,7 +2,8 @@
 
 //Assigns the form variables to upload.
 if (isPostRequest()) {
-    $address_id = filter_input(INPUT_POST, 'address_id');
+    $address_id = filter_input(INPUT_GET, 'id');
+    $address_g_id = filter_input(INPUT_POST, 'address_id');
     $firstName = filter_input(INPUT_POST, 'firstname');
     $lastName = filter_input(INPUT_POST, 'lastname');
     $fullName = $firstName . " " . $lastName;
@@ -23,7 +24,7 @@ if (isPostRequest()) {
     $address = $street . "|" . $town . "|" . $state . "|" . $zipcode;
     
     if(!empty($tell)&&!empty($email)&&!empty($fullName)&&!empty($address_id)&&!empty($address)&&!empty($birthday)&&empty($message)){
-    addData($address_id, $fullName, $email, $tell, $address, $website, $birthday, $image);
+    updateData($address_id, $address_g_id ,$fullName, $email, $tell, $address, $website, $birthday, $image);
     header("Location: index.php");
     }
     
