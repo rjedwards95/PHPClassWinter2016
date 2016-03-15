@@ -64,27 +64,40 @@ function uploadImage($fieldName){
     return $fileName.'.'.$ext;
 }
 
-function checkData($email, $tell, $zipcode){
-    $e_message = array();
+function checkData($address_id, $firstName, $lastName, $birthday, $email, $street, $town, $state, $tell, $zipcode){
+    $e_messageRaw = array();
     
     $emailRegex = '/^[a-zA-Z0-9$]+[@]{1}[a-zA-Z]+[\.]{1}[a-zA-Z]{2,3}$/';
-    $tellRegex = '/^[(]?[0-9]{3}[)]?[-]?[0-9]{3}[-]?[0-9]{4}$/';
+    $tellRegex = '/^[(]?[1]?[0-9]{3}[)]?[-]?[0-9]{3}[-]?[0-9]{4}$/';
     $zipRegex = '/^[0-9]{5}$/';
-    
+    $variables = array(
+        "Group ID" => $address_id,
+        "First name" => $firstName,
+        "Last name" => $lastName,
+        "Birthday" => $birthday,
+        "Street" => $street,
+        "Town" => $town,
+        "State" => $state,
+    );
+
+    foreach($variables as $key=>$variable){
+        $e_messageRaw[] = checkEmpty($variable, $key);
+    }
     if(!preg_match($emailRegex, $email)){
-        $e_message[] = "Email not valid!";
+        $e_messageRaw[] = "Email not valid!";
     }
     if(!preg_match($tellRegex, $tell)){
-        $e_message[] = "Telephone is not valid!";
+        $e_messageRaw[] = "Telephone is not valid!";
     }
     if(!preg_match($zipRegex, $zipcode)){
-        $e_message[] = "Zipcode isn't valid!";
+        $e_messageRaw[] = "Zipcode isn't valid!";
     }
     
+    $e_message = implode(', ', array_filter($e_messageRaw));
     if(isset($e_message)){
         return $e_message;
     }
-        return true;
+        return false;
 }
 
 //Adds data to Address database.
@@ -108,4 +121,17 @@ function addData($address_id ,$fullName, $email, $tell, $address, $website, $bir
         return true;
     }
     return false;
+}
+
+
+/*
+ * Checks to see if variable is empty
+ * 
+ * @return NULL if empty, message if false.
+ */
+function checkEmpty($variable, $name){
+    if(empty($variable)){
+        return  $name ." is not set.";
+    }
+    return NULL;
 }

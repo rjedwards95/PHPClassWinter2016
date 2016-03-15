@@ -3,6 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Address Book</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     </head>
     <body>
         <?php
@@ -15,8 +20,7 @@
         if (!isset($_SESSION['login'])){
         $_SESSION['login'] = false;
         }
-        $view = filter_input(INPUT_GET, 'view');  
-        
+        $view = filter_input(INPUT_GET, 'view'); 
         if($view == 'login'){
             include_once './Includes/Login/login-form.html.php';
             include_once './Includes/Login/variable-assignment.php';
@@ -25,9 +29,9 @@
         elseif($view == 'add'){
             $title = "Add";
             require "../lab/Includes/header.html.php";
-            include "./Includes/Add/add-form.php";
             include './Functions/Add/add-functions.php';
             include './Includes/Add/variable-assignment.php';
+            include "./Includes/Add/add-form.php";
         }
         elseif($view == 'update'){
             $title = "Update";
@@ -36,6 +40,7 @@
         elseif($view == 'delete'){
             $title = "Delete";
             require "../lab/Includes/header.html.php";
+            include_once './Includes/Delete/delete-item.php';
         }
         elseif($view == 'logout'){
             session_destroy();
@@ -56,9 +61,7 @@
         }
         
         
-        
         ?>
-        <?phpif($id != false):?>
-        <input type="hidden" value="<?php echo $_SESSION['id']?>"/>
+        <input type="hidden" value="<?php echo $_SESSION['id'];?>"/>
     </body>
 </html>

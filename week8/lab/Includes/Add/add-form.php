@@ -20,7 +20,7 @@
                 First Name:
             </td>
             <td>
-                <input type="text" value="" name="firstname"/>
+                <input type="text" value="<?php if(!empty($firstName)){echo $firstName;}?>" name="firstname"/>
             </td>
         </tr>
         <tr>
@@ -28,7 +28,7 @@
                 Last Name:
             </td>
             <td>
-                <input type="text" value="" name="lastname"/>
+                <input type="text" value="<?php if(!empty($lastName)){echo $lastName;}?>" name="lastname"/>
             </td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@
                 Email:
             </td>
             <td>
-                <input type="text" value="" name="email"/>
+                <input type="text" value="<?php if(!empty($email)){echo $email;}?>" name="email"/>
             </td>
         </tr>
         <tr>
@@ -44,7 +44,7 @@
                 Telephone:
             </td>
             <td>
-                <input type="tel" value="" name="telephone"/>
+                <input type="tel" value="<?php if(!empty($tell)){echo $tell;}?>" name="telephone"/>
             </td>
         </tr>
         <tr>
@@ -52,7 +52,7 @@
                 Street Address:
             </td>
             <td>
-                <input type="text" value="" name="street"/>
+                <input type="text" value="<?php if(!empty($street)){echo $street;}?>" name="street"/>
             </td>
         </tr>
         <tr>
@@ -60,7 +60,7 @@
                 Town:
             </td>
             <td>
-                <input type="text" value="" name="town"/>
+                <input type="text" value="<?php if(!empty($town)){echo $town;}?>" name="town"/>
             </td>
         </tr>
         <tr>
@@ -68,7 +68,7 @@
                 State:
             </td>
             <td>
-                <input type="text" value="" name="state"/>
+                <input type="text" value="<?php if(!empty($state)){echo $state;}?>" name="state"/>
             </td>
         </tr>
         <tr>
@@ -76,7 +76,7 @@
                 Zipcode:
             </td>
             <td>
-                <input type="text" value="" name="zip"/>
+                <input type="text" value="<?php if(!empty($zipcode)){echo $zipcode;}?>" name="zip"/>
             </td>
         </tr>
         <tr>
@@ -84,7 +84,7 @@
                 Website:
             </td>
             <td>
-                <input type="text" value="" name="website"/>
+                <input type="text" value="<?php if(!empty($website)){echo $website;}?>" name="website"/>
             </td>
         </tr>
         <tr>
@@ -92,7 +92,7 @@
                 Birthday:
             </td>
             <td>
-                <input type="date" value="" name="birthday"/>
+                <input type="date" value="<?php if(!empty($birthday)){echo date("Y-m-d",  strtotime($birthday));}?>" name="birthday"/>
             </td>
         </tr>
         <tr>
@@ -106,5 +106,8 @@
     </table>
     <input type="submit" value="Add"/>
     <a href="index.php">Go back</a>
-    <?php echo $message;?>
 </form>
+<?php
+if(isset($message)&&$message == true){
+    echo $message;
+}

@@ -13,7 +13,11 @@ function isValidUser($user, $pass) {
     if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($results as $result) {
+            if($result['password'] === $pass){
             return $result['user_id'];
+            }else{
+                return false;
+            }
         }
     }
 
@@ -39,12 +43,15 @@ function addUser($user, $pass) {
 //Pulls data from address book.
 function allData($id) {
     $db = dbconnect();
-
+    if($id != false){
     $stmt = $db->prepare("SELECT * FROM address WHERE user_id = $id");
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $results;
     } else {
+        return false;
+    }
+    }else{
         return false;
     }
 }
@@ -60,4 +67,19 @@ function getGroup() {
     }
 
     return $results;
+}
+
+//Deletes item from database
+function deleteData($address_id) {
+    $db = dbconnect();
+
+    $stmt = $db->prepare("DELETE FROM address WHERE address_id = :address_id");
+    $binds = array(
+        ":address_id" => $address_id
+    );
+
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        return true;
+    }
+    return false;
 }

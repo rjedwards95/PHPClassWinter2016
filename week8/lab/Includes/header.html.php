@@ -6,13 +6,13 @@
     <table>
         <tr>
             <td>
-                <a href="?view=home">Home</a>
+                <a class ="btn btn-default" href="?view=home">Home</a>
             </td>
             <td>
-                <a href="?view=add">Add</a>
+                <a class ="btn btn-default" href="?view=add">Add</a>
             </td>
             <td>
-                <a href="?view=logout">Logout</a>
+                <a class ="btn btn-default" href="?view=logout">Logout</a>
             </td>
         </tr>
     </table>

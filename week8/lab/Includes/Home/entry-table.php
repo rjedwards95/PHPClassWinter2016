@@ -1,8 +1,9 @@
 <?php
+if(isset($_SESSION['id'])){
 $results = allData($_SESSION['id']);
 if ($results != false || $results != null) {
     ?>
-    <table>
+    <table class="table table-bordered">
         <tr>
             <th>
                 Name
@@ -23,13 +24,13 @@ if ($results != false || $results != null) {
                     <?php echo $row['fullname']; ?>
                 </td>
                 <td>
-                    <a href="index.php?view=view&id=<?php echo $row['address_id']; ?>">Read</a>
+                    <a class ="btn btn-default" href="index.php?view=view&id=<?php echo $row['address_id']; ?>">Read</a>
                 </td>
                 <td>
-                    <a href="index.php?view=update&id=<?php echo $row['address_id']; ?>">Update</a>
+                    <a class ="btn btn-primary" href="index.php?view=update&id=<?php echo $row['address_id']; ?>">Update</a>
                 </td>
                 <td>
-                    <a href="index.php?view=deleteS&id=<?php echo $row['address_id']; ?>">Delete</a>
+                    <a class="btn btn-warning" href="index.php?view=delete&id=<?php echo $row['address_id']; ?>">Delete</a>
                 </td>
             </tr>
         <?php
@@ -37,5 +38,6 @@ if ($results != false || $results != null) {
     }else {
         echo "No data yet.";
     }
+}
     ?>
 </table>

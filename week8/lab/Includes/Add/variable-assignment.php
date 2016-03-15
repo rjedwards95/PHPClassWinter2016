@@ -3,7 +3,9 @@
 //Assigns the form variables to upload.
 if (isPostRequest()) {
     $address_id = filter_input(INPUT_POST, 'address_id');
-    $fullName = filter_input(INPUT_POST, 'firstname') . " " . filter_input(INPUT_POST, 'lastname');
+    $firstName = filter_input(INPUT_POST, 'firstname');
+    $lastName = filter_input(INPUT_POST, 'lastname');
+    $fullName = $firstName . " " . $lastName;
     $email = filter_input(INPUT_POST, 'email');
     $tell = filter_input(INPUT_POST, 'telephone');
     $street = filter_input(INPUT_POST, 'street');
@@ -12,17 +14,18 @@ if (isPostRequest()) {
     $zipcode = filter_input(INPUT_POST, 'zip');
     $website = filter_input(INPUT_POST, 'website');
     $birthday = filter_input(INPUT_POST, 'birthday');
+    $message = checkData($address_id, $firstName, $lastName, $birthday, $email, $street, $town, $state, $tell, $zipcode);
     try {
         $image = uploadImage('upfile');
     } catch (RuntimeException $ex) {
         $image = '';
     }
-    $message = checkData($email, $tell, $zipcode);
+    $address = $street . " " . $town . ", " . $state . " " . $zipcode;
     
-    if($message != true){
-    echo "<br/>" . implode(', ', $message);     
+    if(!empty($tell)&&!empty($email)&&!empty($fullName)&&!empty($address_id)&&!empty($address)&&!empty($birthday)&&empty($message)){
+    addData($address_id, $fullName, $email, $tell, $address, $website, $birthday, $image);
+    header("Location: index.php");
     }
-    $address = $street . " " . $town . ", " . $state . " " . $zipcode; 
     
 } else {
     $address_id = NULL;
