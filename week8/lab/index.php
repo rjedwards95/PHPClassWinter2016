@@ -62,7 +62,11 @@
         }else{
             $title = "Home";
             require "../lab/Includes/header.html.php";
+            if(!empty($_SESSION['id'])){
+            include_once './Includes/Home/variable-assignment.php';
+            include_once './Includes/Home/search-bar.php';
             include_once "./Includes/Home/entry-table.php";
+            }
         }
         
         

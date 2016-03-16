@@ -1,6 +1,4 @@
 <?php
-if(isset($_SESSION['id'])){
-$results = allData($_SESSION['id']);
 if ($results != false || $results != null) {
     ?>
     <table class="table table-bordered">
@@ -33,11 +31,10 @@ if ($results != false || $results != null) {
                     <a class="btn btn-warning" href="index.php?view=delete&id=<?php echo $row['address_id']; ?>">Delete</a>
                 </td>
             </tr>
-        <?php
+            <?php
         endforeach;
     }else {
         echo "No data yet.";
     }
-}
     ?>
 </table>

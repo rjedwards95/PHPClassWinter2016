@@ -141,3 +141,60 @@ function updateData($address_id,$address_g_id ,$fullName, $email, $tell, $addres
     }
     return false;
 }
+
+function groupData($id,$groupID) {
+    $db = dbconnect();
+    if($id != false){
+    $stmt = $db->prepare("SELECT * FROM address WHERE user_id = $id AND address_group_id = $groupID");
+    if ($stmt->execute() && $stmt->rowCount() > 0) {
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    } else {
+        return false;
+    }
+    }else{
+        return false;
+    }
+}
+
+//Searches database for query.
+function searchData($id,$searchq,$selectedCol) {
+    $db = dbconnect();
+    if($id != false){
+    $stmt = $db->prepare("SELECT * FROM address WHERE $selectedCol LIKE '%" . $searchq . "%' AND user_id = $id");
+    if ($stmt->execute() && $stmt->rowCount() > 0) {
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    } else {
+        return false;
+    }
+    }else{
+        return false;
+    }
+}
+
+//Pulls col names from database
+function colName() {
+    $db = dbconnect();
+    $colName = array();
+
+    //Prepares statement for column list
+    $stmt = $db->prepare("SHOW columns FROM address;");
+
+    $cols = array();
+    //if statement executes fetches column names
+    if ($stmt->execute() && $stmt->rowCount() > 0) {
+        $cols = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        //Kills function and displays an error.
+    } else {
+        die("Table doesn't exist");
+    }
+
+    //Loops $cols to fill $colName array with the column names.
+    foreach ($cols as $value) {
+        $colName[] = $value['Field'];
+    }
+    //return the $colName array.
+    return $colName;
+}
